@@ -4,17 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum LengthUnit {
-    FEET(0), INCH(1), YARD(2), CENTIMETRE(3);
+    FEET, INCH, YARD, CENTIMETRE;
 
-    public final int unitCode;
     public static List<List<Double>> unitConversionTable = new ArrayList<>();
 
-    LengthUnit(int unitCode) {
-        this.unitCode = unitCode;
-    }
-
     public double getConversionValue(LengthUnit toUnit){
-        return unitConversionTable.get(this.unitCode).get(toUnit.unitCode);
+        return unitConversionTable.get(this.ordinal()).get(toUnit.ordinal());
     }
 
     static{
