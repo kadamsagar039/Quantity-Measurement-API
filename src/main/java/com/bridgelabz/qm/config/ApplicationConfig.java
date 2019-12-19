@@ -1,4 +1,4 @@
-package com.bridgelabz.config;
+package com.bridgelabz.qm.config;
 
 import com.bridgelabz.qm.enumeration.LengthUnit;
 import com.bridgelabz.qm.enumeration.TemperatureUnit;
