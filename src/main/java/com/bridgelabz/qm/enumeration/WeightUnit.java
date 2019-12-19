@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum WeightUnit {
-    KG, GRAMS;
+    KG, GRAMS, TONNE;
 
     public static List<List<Double>> unitConversionTable = new ArrayList<>();
 
@@ -17,11 +17,17 @@ public enum WeightUnit {
         //Row 1 in Unit Conversion Table
         unitConversionRow.add(1.0);
         unitConversionRow.add(1000.0);
+        unitConversionRow.add(1/1000.0);
         unitConversionTable.add(unitConversionRow);
         unitConversionRow = new ArrayList<>();
         unitConversionRow.add(1/1000.0);
         unitConversionRow.add(1.0);
+        unitConversionRow.add(1/1000000.0);
+        unitConversionTable.add(unitConversionRow);
+        unitConversionRow = new ArrayList<>();
+        unitConversionRow.add(1000.0);
+        unitConversionRow.add(1000000.0);
+        unitConversionRow.add(1.0);
         unitConversionTable.add(unitConversionRow);
     }
-
 }
