@@ -1,4 +1,4 @@
-package com.bridgelabz.quantitymeasurement;
+package com.bridgelabz.qm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

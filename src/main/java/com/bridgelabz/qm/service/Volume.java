@@ -1,5 +1,6 @@
 package com.bridgelabz.qm.service;
 
+import com.bridgelabz.qm.enumeration.LengthUnit;
 import com.bridgelabz.qm.enumeration.VolumeUnit;
 
 public class Volume {
@@ -15,6 +16,10 @@ public class Volume {
     public boolean compare(Volume length) {
         double unitConversionValue = this.unit.getConversionValue(length.unit);
         return Double.compare(length.value,this.value*unitConversionValue) == 0;
+    }
+
+    public double convertTo(VolumeUnit unit){
+        return this.value*this.unit.getConversionValue(unit);
     }
 
     @Override

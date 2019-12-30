@@ -1,5 +1,6 @@
 package com.bridgelabz.qm.service;
 
+import com.bridgelabz.qm.enumeration.LengthUnit;
 import com.bridgelabz.qm.enumeration.WeightUnit;
 
 import java.util.Objects;
@@ -16,6 +17,10 @@ public class Weight {
     public boolean compare(Weight length) {
         double unitConversionValue = this.unit.getConversionValue(length.unit);
         return Double.compare(length.value,this.value*unitConversionValue) == 0;
+    }
+
+    public double convertTo(WeightUnit unit){
+        return this.value*this.unit.getConversionValue(unit);
     }
 
     @Override

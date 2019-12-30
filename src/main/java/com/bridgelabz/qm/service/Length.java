@@ -17,6 +17,10 @@ public class Length {
         return Double.compare(length.value,this.value*unitConversionValue) == 0;
     }
 
+    public double convertTo(LengthUnit unit){
+        return this.value*this.unit.getConversionValue(unit);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
