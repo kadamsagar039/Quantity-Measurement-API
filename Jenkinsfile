@@ -6,9 +6,10 @@ pipeline {
    stages {
         stage('Build') {
 		steps {
-			sh './jenkins/scripts/build.sh'
+			sh './jenkins/scripts/codequality.sh'
 		      }
 	}
+	   /*
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
@@ -32,5 +33,6 @@ pipeline {
                 sh './jenkins/scripts/deploy-for-production.sh'
             }
         }
+	*/
     }
 }
