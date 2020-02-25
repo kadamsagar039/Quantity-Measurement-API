@@ -3,7 +3,9 @@ package com.bridgelabz.qm.service;
 import com.bridgelabz.qm.enumeration.TemperatureUnit;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class TemperatureTest {
 
     @Test
