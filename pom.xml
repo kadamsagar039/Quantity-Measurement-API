@@ -68,5 +68,25 @@
             </plugin>
         </plugins>
     </build>
-
+<settings>
+  <pluginGroups>
+    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+  </pluginGroups>
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.host.url>http://sonar.incubation.bridgelabz.com</sonar.host.url>
+	<sonar.login>c1dfe6199d1bfb4784467ba7cb2c84cb962ea40d</sonar.login>
+        <sonar.projectName>Quantity-Measurement</sonar.projectName>
+        <sonar.projectVersion>master</sonar.projectVersion>
+        <sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
+        <sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*</sonar.exclusions>
+      </properties>
+    </profile>
+  </profiles>
+</settings>
 </project>
