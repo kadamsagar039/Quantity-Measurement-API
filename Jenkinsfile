@@ -2,10 +2,10 @@ pipeline {
 	agent any
     environment {
         CI = 'true'
-	JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
-        M2_HOME=/var/jenkins_home/maven/apache-maven-3.6.3
-        MAVEN_HOME=/var/jenkins_home/maven/apache-maven-3.6.3
-        PATH=${M2_HOME}/bin:${PATH}
+	JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'
+        M2_HOME = '/var/jenkins_home/maven/apache-maven-3.6.3'
+        MAVEN_HOME = '/var/jenkins_home/maven/apache-maven-3.6.3'
+        PATH = '${M2_HOME}/bin:${PATH}'
 	
     }
    stages {
