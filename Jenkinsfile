@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
 		steps {
 			withSonarQubeEnv('sonarcube') {
-                        sh '/bin/bash source /var/jenkins_home/maven/maven.sh && /bin/bash mvn clean package sonar:sonar'
+                        sh './jenkins/scripts/codequality.sh'
               }
 		      }
 	}
