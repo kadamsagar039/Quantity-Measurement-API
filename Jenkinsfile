@@ -6,7 +6,9 @@ pipeline {
    stages {
         stage('Build') {
 		steps {
-			sh './jenkins/scripts/codequality.sh'
+			withSonarQubeEnv('sonarcube') {
+                        sh 'mvn clean package sonar:sonar'
+              }
 		      }
 	}
 	stage("Quality Gate") {
