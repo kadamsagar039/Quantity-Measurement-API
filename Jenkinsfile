@@ -25,30 +25,16 @@ pipeline {
                  steps {
                       script {
                               
-           /*
+        
               def qualitygate = waitForQualityGate()
               if (qualitygate.status != "OK") {
                  error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-	  */
-	def ceTask
-        def URL url = new URL(ceTaskUrl)
-          timeout(time: 1, unit: 'MINUTES') {
-            waitUntil {
-              ceTask = utils.jsonParse(url)
-              echo ceTask.toString()
-              return "SUCCESS".equals(ceTask["task"]["status"])
-            }
-          }
-          url = new URL(sonarServerUrl + "/api/qualitygates/project_status?analysisId=" + ceTask["task"]["analysisId"] )
-          def qualitygate =  utils.jsonParse(url)
-          echo qualitygate.toString()
-          if ("ERROR".equals(qualitygate["projectStatus"]["status"])) {
-            error  "Quality Gate failure"
-          }
+	
+	
 		      	      
 			      
-          /* } */
-        }
+          } 
+	      }
      }
   }     
 	   /*
