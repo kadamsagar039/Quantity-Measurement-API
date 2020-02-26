@@ -10,10 +10,10 @@ pipeline {
                         sh './jenkins/scripts/codequality.sh'
 			timeout(time: 1, unit: 'HOURS') {
                         waitForQualityGate abortPipeline: true
-              }
+                                                        }
 		      }
 	}
-	
+	}
 	   /*
         stage('Test') {
             steps {
