@@ -12,6 +12,7 @@ pipeline {
         stage('Code Analysis') {
 		steps {
 			withSonarQubeEnv('sonarcube') {
+			sh 'printenv'
                         sh 'mvn clean package sonar:sonar'
 			timeout(time: 1, unit: 'HOURS') {
                         waitForQualityGate abortPipeline: true
