@@ -45,9 +45,9 @@ pipeline {
           if ("ERROR".equals(qualitygate["projectStatus"]["status"])) {
             error  "Quality Gate failure"
           }
-		      }		      
+		      	      
 			      
-           }
+          /* } */
         }
      }
   }     
