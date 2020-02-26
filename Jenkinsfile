@@ -2,10 +2,12 @@ pipeline {
 	agent any
     environment {
         CI = 'true'
+	    /*
 	JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'
         M2_HOME = '/var/jenkins_home/maven/apache-maven-3.6.3'
         MAVEN_HOME = '/var/jenkins_home/maven/apache-maven-3.6.3'
         PATH = '${M2_HOME}/bin:${PATH}'
+	*/
 	
     }
    stages {
@@ -13,7 +15,7 @@ pipeline {
 		steps {
 			withSonarQubeEnv('sonarcube') {
 			sh 'printenv'
-                        sh 'mvn clean package sonar:sonar'
+                        sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn clean package sonar:sonar'
 			timeout(time: 1, unit: 'HOURS') {
                         waitForQualityGate abortPipeline: true
                                                         }
