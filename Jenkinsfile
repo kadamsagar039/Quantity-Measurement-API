@@ -18,9 +18,10 @@ pipeline {
                         sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn clean package sonar:sonar'
 			     }
 			withSonarQubeEnv('sonarcube') {
-			timeout(time: 180, unit: 'SECONDS') {
-                        waitForQualityGate(webhookSecretId: 'c1dfe6199d1bfb4784467ba7cb2c84cb962ea40d', abortPipeline: true)
-                                                        }
+			def qualitygate = waitForQualityGate()
+                        if (qualitygate.status != "OK") {
+                        error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+                        }
 			}
 	}
 	}
