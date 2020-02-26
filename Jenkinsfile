@@ -40,7 +40,7 @@ pipeline {
 	   
         stage('Build') {
             steps {
-                sh 'mvn package -Dmaven.test.skip=true'
+                sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn package -Dmaven.test.skip=true'
             }
         }
 	/*
