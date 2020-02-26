@@ -19,7 +19,7 @@ pipeline {
 			     }
 			withSonarQubeEnv('sonarcube') {
 			timeout(time: 180, unit: 'SECONDS') {
-                        waitForQualityGate abortPipeline: true
+                        waitForQualityGate(webhookSecretId: 'c1dfe6199d1bfb4784467ba7cb2c84cb962ea40d', abortPipeline: true)
                                                         }
 			}
 	}
