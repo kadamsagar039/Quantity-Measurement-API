@@ -17,7 +17,7 @@ pipeline {
 			sh 'printenv'
                         sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn clean package sonar:sonar'
 			     }
-			withSonarQubeEnv('quality gate') {
+			withSonarQubeEnv('sonarcube') {
 			timeout(time: 1, unit: 'HOURS') {
                         waitForQualityGate abortPipeline: true
                                                         }
