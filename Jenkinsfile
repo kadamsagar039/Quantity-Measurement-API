@@ -4,20 +4,16 @@ pipeline {
         CI = 'true'
     }
    stages {
-        stage('Build') {
+        stage('Code Analysis') {
 		steps {
 			withSonarQubeEnv('sonarcube') {
                         sh './jenkins/scripts/codequality.sh'
+			timeout(time: 1, unit: 'HOURS') {
+                        waitForQualityGate abortPipeline: true
               }
 		      }
 	}
-	stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-          }
+	
 	   /*
         stage('Test') {
             steps {
