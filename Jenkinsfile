@@ -17,13 +17,22 @@ pipeline {
 			sh 'printenv'
                         sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn clean package sonar:sonar'
 			               		     }
-			def qualitygate = waitForQualityGate()
-                        if (qualitygate.status != "OK") {
-                        error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-                        }
-			
-	               }
+				               }
 	                       }
+   
+	
+	stage ("QualityGate") {
+                 steps {
+                      script {
+                              
+           
+              def qualitygate = waitForQualityGate()
+              if (qualitygate.status != "OK") {
+                 error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+           }
+        }
+     }
+  }     
 	   /*
         stage('Test') {
             steps {
@@ -49,5 +58,5 @@ pipeline {
             }
         }
 	*/
-    }
+   }  
 }
