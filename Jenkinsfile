@@ -37,12 +37,13 @@ pipeline {
 	      }
      }
   }     
-	   /*
-        stage('Test') {
+	   
+        stage('Build') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                sh 'mvn package -Dmaven.test.skip=true'
             }
         }
+	/*
         stage('Deliver for development') {
             when {
                 branch 'development'
