@@ -43,18 +43,14 @@ pipeline {
                 sh '/var/jenkins_home/maven/apache-maven-3.6.3/bin/mvn package -Dmaven.test.skip=true'
             }
         }
-	/*
+	
         stage('Deliver for development') {
-            when {
-                branch 'development'
-            }
-            steps {
-                sh './jenkins/scripts/deliver-for-development.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
-            }
+          sh label: '', script: '''fuser -k 8080/tcp
+          scp /home/workspace/Quantity-Measurement/target/quantitymeasurement-0.0.1-SNAPSHOT.jar ubuntu@13.235.9.40:/home/ubuntu
+          java -jar quantitymeasurement-0.0.1-SNAPSHOT.jar --httpPort=8080'''
         }
-        stage('Deploy for production') {
+	   
+        /*stage('Deploy for production') {
             when {
                 branch 'production'
             }
